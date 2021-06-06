@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
+
+
+    <link rel="icon" href="https://img.icons8.com/color/100/000000/pentagram-devil.png" type="image/x-icon">
+    
+
+    <title>
+          {% block title %}
+            
+          {% endblock title %}
+    </title>
+     <!--<link rel="icon" href="https://img.icons8.com/color/48/000000/coderwall.png" type="image/x-icon">-->
+
+    <style>
+     
+    </style>
+
+  </head>
+  <body>
+    
+ 
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    -->
+
+      
+<nav class="navbar navbar sticky-top navbar-expand-lg navbar-light bg-light" style="background-color: #7ee8fa;
+background-image: linear-gradient(315deg, #7ee8fa 0%, #80ff72 74%);
+">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">DevChroma</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+         <li class="nav-item  ">
+          <a class="nav-link " href="/blog"  >Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/dev">Dev</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+          
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              User
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#">Login</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+
+         <li class="nav-item">
+            <a class="nav-link" href="">
+                <li class="nav-item active">
+                    <!--i style="font-size: 48px; color:#FFF;" class="fas">&#xf2bd;</i> 
+                    <i style="font-size: 39px; color:rgb(22, 11, 11);"  class="far fa-user-circle"></i> -->User
+                </li>
+            </a>
+
+         </li>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+
+        <div class="login">
+          <button class="btn btn-outline-dark  rounded-pill btn-outline" type="submit" style="background-color: #b5c327;
+          background-image: linear-gradient(315deg, #b5c327 0%, #ffc907 74%);
+          ">Get Started</button>
+        </div>
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+
+{% block body %}
+  
+{% endblock body %}
+<!--
+    background-color: #05e8ba;
+background-image: linear-gradient(315deg, #05e8ba 0%, #087ee1 74%);
+
+background-color: #3ee577;
+background-image: linear-gradient(315deg, #3ee577 0%, #42fcdb 74%);
+
+background-color: #ffcfdf;
+background-image: linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%);
+
+
+-->
+<div class="d-flex flex-column sticky-footer-wrapper  footer min-vh-100" >
+
+<footer class="footer mt-auto py-1 bg-light container " >
+  <div class="row">
+    <div class="col-12 col-md">
+
+      <small class="d-block mb-3 text-muted">&copy; 2021-2022</small>
+      <small class="d-block mb-3 text-muted">made with love by AK</small>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Features</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#">Cool stuff</a></li>
+        <li><a class="text-muted" href="#">Random feature</a></li>
+        <li><a class="text-muted" href="#">Team feature</a></li>
+        <li><a class="text-muted" href="#">Stuff for developers</a></li>
+        <li><a class="text-muted" href="#">Another one</a></li>
+        <li><a class="text-muted" href="#">Last time</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Resources</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#">Resource</a></li>
+        <li><a class="text-muted" href="#">Resource name</a></li>
+        <li><a class="text-muted" href="#">Another resource</a></li>
+        <li><a class="text-muted" href="#">Final resource</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Resources</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#">Business</a></li>
+        <li><a class="text-muted" href="#">Education</a></li>
+        <li><a class="text-muted" href="#">Government</a></li>
+        <li><a class="text-muted" href="#">Gaming</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>About</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#">Team</a></li>
+        <li><a class="text-muted" href="#">Locations</a></li>
+        <li><a class="text-muted" href="#">Privacy</a></li>
+        <li><a class="text-muted" href="#">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</div>
+  </body>
+</html>
+
