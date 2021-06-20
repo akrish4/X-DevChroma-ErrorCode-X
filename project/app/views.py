@@ -26,3 +26,6 @@ def handleLogin(request):
 
 def signup(request):
     return render(request,"signup.html")   
+
+def dev(request):
+    return render(request,"dev.html")
