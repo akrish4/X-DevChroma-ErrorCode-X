@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base1.html' %}
 {% block head %}
 <style>
      body{
@@ -27,8 +27,11 @@ background-image: linear-gradient(315deg, #f6fba2 0%, #20ded3 74%);
 </style>
 {% endblock head %}
 {% block title %}
-DevChroma - LOGIN
+ LOGIN
 {% endblock title %}
+{% block user %}
+active
+{% endblock user %}
 {% block body %}
 <div class="container mt-4 mt-1 mb-2">
     
@@ -42,14 +45,14 @@ DevChroma - LOGIN
      
     <div class="card mt-4">
     
-   <!--{ {% for message in messages  %}
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {% for message in messages  %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
         <strong></strong>{{message}}
-        <button type="button" class="close border-dark" data-dismiss="alert" aria-label="Close ">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close ">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-    {% endfor %}-->  
+    {% endfor %}
     <div class="card-body">   
      <div class="d-grid gap-2">
        <a  class="btn btn-sm    btn-light "  href=""  >Login With <img src="https://img.icons8.com/color/30/000000/google-logo.png"/></a>
@@ -73,7 +76,7 @@ DevChroma - LOGIN
     
     </form>
     <p><a href="">Forgotten your password?</a></p>
-    <span>Not a User?</span> <a href="/signUp">signUp</a>
+    <span>Not a User?</span> <a href="/signup">signp</a>
     </div>   
  
 </div>
