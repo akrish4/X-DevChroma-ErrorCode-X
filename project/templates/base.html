@@ -32,13 +32,12 @@
      {% endblock head %}
     <style>
 
-
-      #hero1 {
+ #hero1 {
     
         background: linear-gradient(90deg, rgb(20, 46, 116) 0%, rgb(37, 48, 151) 35%, rgb(69, 0, 148) 100%);
       } 
 
-      #hero {
+ #hero {
     width: 100%;
     height: 80vh;
     overflow: hidden;
@@ -279,8 +278,8 @@
     position: fixed;
     top: calc(50% - 30px);
     left: calc(50% - 30px);
-    border: 6px solid #0679ad;
-    border-top-color: rgb(238, 225, 225);
+    border: 6px solid #030379;
+    border-top-color: rgb(225, 238, 237);
     border-bottom-color: rgb(245, 238, 238);
     border-radius: 50%;
     width: 60px;
@@ -459,22 +458,17 @@
           {% endblock contact %}" href="/contact">Contact</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link {% block dev %}
+          {% endblock dev %}" href="/dev">
+             Dev
+          </a>
+       </li>
+        <li class="nav-item">
           <a class="nav-link {% block services %}
             
           {% endblock services %}" href="/services">Services</a>
         </li>
-
-        <li class="nav-item">
-          <a class="nav-link {% block dev %}
-            
-          {% endblock dev %}" href="/dev">
-              <li class="nav-item ">
-                  <!--i style="font-size: 48px; color:#FFF;" class="fas">&#xf2bd;</i> 
-                  <i style="font-size: 39px; color:rgb(22, 11, 11);"  class="far fa-user-circle"></i> -->Dev
-              </li>
-          </a>
-
-       </li>
+        
       </ul>
       <ul class="navbar-nav ml-auto">
           
@@ -491,7 +485,7 @@
             </ul>
           </li>
 
-        &nbsp;&nbsp;&nbsp;&nbsp;
+        
 
         <div class="login">
           <button class="btn btn-outline-dark text-black  rounded-pill btn-outline"  type="submit" style="background-color: #48dbfb;
@@ -521,12 +515,12 @@
         <div class="row">
           <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
             <h1>We Provide
-  Best Training
-  To Our Interns</h1>
-            <h2>Online Internship</h2>
+  Best Services
+  To Our Clients</h1>
+            <h2>Online  Work</h2>
             <div class="d-lg-flex">
-              <a href="/internship/registration/" class="btn-get-started scrollto">ENROLL NOW</a>
-              <a href="https://www.youtube.com/watch?v=PHgVx5Hkxvg&feature=youtu.be" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> ENROLLMENT PROCEDURE <i class="icofont-play-alt-2"></i></a>
+              <a href="/internship/registration/" class="btn-get-started scrollto">HIRE NOW</a>
+              <a href="https://www.youtube.com/watch?v=PHgVx5Hkxvg&feature=youtu.be" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> MORE DETAILS<i class="icofont-play-alt-2"></i></a>
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
