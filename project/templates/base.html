@@ -264,7 +264,6 @@
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
-
 #preloader {
     position: fixed;
     top: 0;
@@ -475,7 +474,8 @@
       </ul>
       <ul class="navbar-nav ml-auto">
           
-        <li class="nav-item dropdown">
+          {% if not request.user.is_authenticated %}
+           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle {% block user %}
               
             {% endblock user %}" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -487,10 +487,24 @@
               <li><a class="dropdown-item" href="#">Log out  </a></li>
             </ul>
           </li>
+          {% else %}
+           <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle 
+              
+           " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Welcome   {{user.username}}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              
+              <li><a class="dropdown-item" href="#">Log out  </a></li>
+            </ul>
+          </li>
 
+          {% endif %}
+       
         
 
-        <div class="login">
+        <div class="get-started">
           <button class="btn btn-outline-dark text-black  rounded-pill btn-outline"  type="submit" style="background-color: #48dbfb;
           background-image: linear-gradient(315deg, #48dbfb 0%, #d3d3d3 74%); 
           ">Get Started</button>
