@@ -24,6 +24,18 @@ def services(request):
     return render(request,"services.html")      
 
 def handleLogin(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        pass1 = request.POST.get('pass1')
+        myuser = authenticate(username=username,password=pass1)
+        if myuser is not None:
+            login(request,myuser)
+            messages.success(request,"Login Successful")
+            return redirect('/')
+        else:
+            messages.error(request,"Invalid Credientials")    
+
+
     return render(request,"login.html")   
 
 def signup(request):
