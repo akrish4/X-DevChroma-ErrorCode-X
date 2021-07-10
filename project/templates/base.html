@@ -476,7 +476,16 @@
       <ul class="navbar-nav ml-auto">
           
           {% if not request.user.is_authenticated %}
-           <li class="nav-item dropdown">
+          <div class="d-md-flex justify-content-md-end">
+            <a href="/login" class="btn btn-md  text-light "  type="submit" style="background-color: #6e72fc;
+            background-image: linear-gradient(315deg, #6e72fc 0%, #ad1deb 74%);"; 
+          ">Log in  </a> &nbsp;
+          <a  href="/signup" class="btn btn-md  text-light "  type="submit" style="background-color: #2876f9;
+          background-image: linear-gradient(315deg, #2876f9 0%, #6d17cb 74%);"; 
+          ">Sign up </a>
+          </div>
+          
+           <!--<li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle {% block user %}
               
             {% endblock user %}" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -486,8 +495,9 @@
               <li><a class="dropdown-item" href="/login">Login</a></li>
               <li><a class="dropdown-item" href="/signup">Sign up</a></li>
             </ul>
-          </li>
+          </li>-->
           {% else %}
+       
            <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle 
               
@@ -496,19 +506,25 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               
-              <li><a class="dropdown-item" href="/logout">Log out  </a></li>
+              <li><a class="dropdown-item" href="/profile"> Profile </a>  </li>
+              <li><a class="dropdown-item" href="/profile"> Dashboard </a>  </li>
+              <li><a class="dropdown-item" href="/profile"> Settings </a>  </li>
+              <li><a class="dropdown-item" href="/profile"> Help </a>  </li>
             </ul>
           </li>
+          
+          <div class=" d-md-flex justify-content-md-end">
+            
+          <a href="/logout" class="btn btn-md   text-light "  type="submit" style="background-color: #2876f9;
+          background-image: linear-gradient(315deg, #2876f9 0%, #6d17cb 74%);"; 
+          ">Log out</a>
+          </div>
 
           {% endif %}
        
         
 
-        <div class="get-started">
-          <a href="/login" class="btn btn-md btn-outline-light text-light  rounded-pill btn-outline"  type="submit" style="background-color: #2876f9;
-          background-image: linear-gradient(315deg, #2876f9 0%, #6d17cb 74%);"; 
-          ">Get Started </a>
-        </div>
+        
        
       </ul>
     </div>
@@ -535,7 +551,7 @@
             <h2>DevChroma</h2>
             <div data-aos="fade-up" data-aos-delay="600">
               <div class="text-center text-lg-start">
-                <a href="/login" class=" btn btn-lg btn-outline-dark rounded-pill text-light  " style="background-color: #2876f9;
+                <a href="/about" class=" btn btn-lg btn-outline-dark rounded-pill text-light  " style="background-color: #2876f9;
                 background-image: linear-gradient(315deg, #2876f9 0%, #6d17cb 74%);">
                   <span>Get Started</span>
                   
