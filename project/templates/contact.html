@@ -1,7 +1,12 @@
-{% extends 'base1.html' %}
+{% extends 'base.html' %}
 {% block title %} Contact {% endblock title %}
 {% block contact %}
-active{% endblock contact %}
+active btn  text-light btn-sm  "  type="submit" style="background-color: #2876f9;
+          background-image: linear-gradient(200deg, #2876f9 0%, #6d17cb 74%);"{% endblock contact %}
+{% block intro %}
+We are trying our best to help you..
+
+{% endblock intro %}
 {% block body %}
 
 
@@ -11,6 +16,11 @@ active{% endblock contact %}
 
  } 
 
+.btn1 {
+
+background-color: #310e68;
+background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+}
 
  .card{
   border-radius: 15px;
@@ -84,7 +94,7 @@ background-image: linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%);
                 rows="4"
               ></textarea>
             </div>
-            <button type="submit" class="btn    btn btn-outline-dark  btn-md mt-3">
+            <button type="submit" class="btn btn1 text-light  btn btn-outline-dark  btn-md mt-3">
               submit
             </button>
           </form>

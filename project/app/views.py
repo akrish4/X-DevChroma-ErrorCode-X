@@ -74,3 +74,8 @@ def signup(request):
 
 def dev(request):
     return render(request,"dev.html")
+
+def handleLogout(request):
+    logout(request)
+    messages.success(request,"Logout Success")
+    return redirect('/login')

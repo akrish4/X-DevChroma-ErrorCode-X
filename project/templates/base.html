@@ -37,14 +37,14 @@
 
  #hero1 {
     
-        background: linear-gradient(90deg, rgb(20, 46, 116) 0%, rgb(37, 48, 151) 35%, rgb(69, 0, 148) 100%);
+        background: linear-gradient(90deg, rgb(50, 4, 65) 0%, rgb(50, 2, 126) 35%, rgb(61, 3, 128) 100%);
       } 
 
  #hero {
     width: 100%;
     height: 80vh;
     overflow: hidden;
-    background: linear-gradient(90deg, rgb(20, 46, 116) 0%, rgb(37, 48, 151) 35%, rgb(69, 0, 148) 100%);
+    background: linear-gradient(90deg, rgb(50, 4, 65) 0%, rgb(50, 2, 126) 35%, rgb(61, 3, 128) 100%);
     
 }
 
@@ -442,6 +442,7 @@
     <div class="collapse navbar-collapse " id="navbarTogglerDemo02">
       <ul class="navbar-nav m-auto mb-2 mb-lg-0">
         <li class="nav-item">
+          
           <a class="nav-link  {% block home %} {% endblock home %}" aria-current="page" href="/">Home</a>
         </li>
          <li class="nav-item  ">
@@ -484,7 +485,6 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" href="/login">Login</a></li>
               <li><a class="dropdown-item" href="/signup">Sign up</a></li>
-              <li><a class="dropdown-item" href="#">Log out  </a></li>
             </ul>
           </li>
           {% else %}
@@ -496,7 +496,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               
-              <li><a class="dropdown-item" href="#">Log out  </a></li>
+              <li><a class="dropdown-item" href="/logout">Log out  </a></li>
             </ul>
           </li>
 
@@ -505,9 +505,9 @@
         
 
         <div class="get-started">
-          <button class="btn btn-outline-dark text-black  rounded-pill btn-outline"  type="submit" style="background-color: #48dbfb;
-          background-image: linear-gradient(315deg, #48dbfb 0%, #d3d3d3 74%); 
-          ">Get Started</button>
+          <a href="/login" class="btn btn-md btn-outline-light text-light  rounded-pill btn-outline"  type="submit" style="background-color: #2876f9;
+          background-image: linear-gradient(315deg, #2876f9 0%, #6d17cb 74%);"; 
+          ">Get Started </a>
         </div>
        
       </ul>
@@ -531,20 +531,23 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-            <h1>We Provide
-  Best Services
-  To Our Clients</h1>
-            <h2>Online  Work</h2>
+            <h1> {% block intro %}{% endblock intro %} </h1>
+            <h2>DevChroma</h2>
             <div data-aos="fade-up" data-aos-delay="600">
               <div class="text-center text-lg-start">
-                <a href="/about" class=" btn btn-outline-light ">
+                <a href="/login" class=" btn btn-lg btn-outline-dark rounded-pill text-light  " style="background-color: #2876f9;
+                background-image: linear-gradient(315deg, #2876f9 0%, #6d17cb 74%);">
                   <span>Get Started</span>
-                  <i class="bi bi-arrow-right"></i>
+                  
+                  <i class="bi bi-arrow-right"></i> 
                 </a>
               </div>
+              
             </div>
+            
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+          {% block intro-image %}{% endblock intro-image %}
 
             </div>
             </div>
