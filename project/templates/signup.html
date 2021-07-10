@@ -1,4 +1,4 @@
-{% extends 'base1.html' %}
+{% extends 'base.html' %}
 
 
 {% block head %}
@@ -13,18 +13,16 @@
  span{
    color: white;
  }
+ .btn1 {
+  background-color: #310e68;
+background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+
+}
+
  .card{
   border-radius: 15px;
   background-color: #fde74c;
 background-image: linear-gradient(319deg, #fde74c 0%, #32ff7a 37%, #2fcbe0 100%);
-
-
-
-
-
-
-
-
 
  }
  .form-group input{
@@ -42,7 +40,9 @@ SIGN UP
 {% block user %}
   active
 {% endblock user %}
-
+{% block intro %}
+Create your account to continue..
+{% endblock intro %}
 {% block body %}
 <div class="container mt-4 mt-1">
     <div class="row">
@@ -64,12 +64,13 @@ SIGN UP
                 
             <div class="card-body">   
               <div class="d-grid gap-2">
-                <a  class="btn btn-sm    btn-light "  href=""  >Signup With <img src="https://img.icons8.com/color/30/000000/google-logo.png"/></a>
+              <h4 class="text-center">SIGN UP</h4>
+                <a  class="btn btn-sm    btn-light"  href=""  >Signup With <img src="https://img.icons8.com/color/30/000000/google-logo.png"/></a>
               </div>
-            <p class='text-center' mt-1 mb-1">OR</p>
+            <h6><p class="text-center text-dark mb-2 mt-2"> OR </p>  </h6>
              <form action="/signup" method="post">{% csrf_token %}
              <div class="form-group">
-             <h4 class="text-center">SIGN UP</h4>
+             
              
             
              <input type="text" class="form-control" name="username" id="username" placeholder="Username  (must be alphanumeric)" Required>
@@ -93,10 +94,16 @@ SIGN UP
              
              <input type="password" class="form-control mb-2" name="pass2" id="pass2" placeholder="Confirm Password" Required>
              </div>
-             
-             <button type="submit" class="btn btn-outline-light rounded-pill btn-md" >SIGN UP</button>
+             <div class="d-grid gap-2">
+              <button type="submit" class="btn btn1  text-light  btn-md mt-2 mb-2" >SIGN UP</button>
+             </div>
+           
             </form>
-            <span>Already a User?</span>  <a href="/login" >login</a>
+            <small>Already a User?</small>
+            <div class="d-grid gap-2">
+              <a type="submit" class="btn btn-md btn1 btn  text-light  btn-md mt-2" id="btn" href="/login">LOG IN</a>
+             </div>
+             
             </div>   
          
         </div>
