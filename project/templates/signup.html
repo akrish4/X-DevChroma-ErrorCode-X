@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-
-
+{% load static %}
 {% block head %}
+{% load socialaccount %}
 <style>
     body{
     
@@ -43,11 +43,17 @@ SIGN UP
 {% block intro %}
 Create your account to continue..
 {% endblock intro %}
+{% block intro-image %}
+<img src="{% static 'images/hero-img1.png' %}"  class="img-fluid animated" alt="hero-img">
+{% endblock intro-image %}
 {% block body %}
 <div class="container mt-4 mt-1">
     <div class="row">
-
-    <div class="col-md-6 ">
+      
+      <div class="col-md-1">
+  
+      </div>
+    <div class="col-md-5 ">
         <div class="row">
             <div class="col-md-2"></div>
             </div>
@@ -65,7 +71,7 @@ Create your account to continue..
             <div class="card-body">   
               <div class="d-grid gap-2">
               <h4 class="text-center">SIGN UP</h4>
-                <a  class="btn btn-sm    btn-light"  href=""  >Signup With <img src="https://img.icons8.com/color/30/000000/google-logo.png"/></a>
+                <a  class="btn btn-sm    btn-light"  href="{% provider_login_url 'google' %}"  >Signup With <img src="https://img.icons8.com/color/30/000000/google-logo.png"/></a>
               </div>
             <h6><p class="text-center text-dark mb-2 mt-2"> OR </p>  </h6>
              <form action="/signup" method="post">{% csrf_token %}
@@ -110,9 +116,13 @@ Create your account to continue..
         
         </div>
     </div>
-    <div class="col-md-6">
-   
-</div>   
+      
+    <div class="col-md-5 col-lg-5 d-flex flex-column justify-content-center">
+      <img  type="image/png" src="{% static 'images/login1.jpg' %}" alt="contact">
+      </div> 
+      <div class="col-md-1">
+  
+      </div>   
  
 </div>
 

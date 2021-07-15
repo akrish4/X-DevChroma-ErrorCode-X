@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block head %}
 <style>
      body{
@@ -40,31 +41,41 @@ active
 {% block intro %}
 Please Login to Continue!
 {% endblock intro %}
+{% block intro-image %}
+<img src="{% static 'images/hero-img2.png' %}"   class="img-fluid animated"  alt="hero-img" width="600">
+{% endblock intro-image %}
 {% block body %}
+{% load socialaccount %}
 <div class="container mt-4 mt-1 mb-2">
-    
     <div class="row">
   
-    <div class="col-md-5">
-    <div class="row">
-    <div class="col-md-2"></div>
+    <div class="col-lg-5 d-flex flex-column justify-content-center">
+    <img  type="image/png" src="{% static 'images/login2.png' %}" alt="contact">
+    </div> 
+    <div class="col-md-2">
+
     </div>
-    <div class="col-md-8">
+         <div class="col-md-5 col-lg-5 align-items-stretch order-1">
+            <div class="row">
+              <div class="col-md-2"></div>
+            </div>
+            <div class="col-md-8">
      
-    <div class="card mt-4">
+                <div class="card mt-4">
+                  {% for message in messages  %}
+           <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+            <strong></strong>{{message}}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close ">
+             <span aria-hidden="true">&times;</span>
+            </button>
+           </div>
+            {% endfor %}
     
-    {% for message in messages  %}
-    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
-        <strong></strong>{{message}}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close ">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    {% endfor %}
+    
     <div class="card-body">   
      <div class="d-grid gap-2">
      <h4 class="text-center text-light">LOGIN</h4>
-       <a  class="btn btn-sm    btn-light"  href=""  >Login With <img src="https://img.icons8.com/color/30/000000/google-logo.png"/></a>
+       <a  class="btn btn-sm    btn-light"  href="{% provider_login_url 'google' %}"  >Login With <img src="https://img.icons8.com/color/30/000000/google-logo.png"/></a>
      </div>
      <h6> <p class="text-center text-light mb-0 mt-3 "> OR  </p></h6>
      <form action="/login" method="post">{% csrf_token %}
@@ -102,12 +113,13 @@ Please Login to Continue!
  
 </div>
 
-</div>
-    <div class="col-md-6">
-    
+            </div>
+            <div class="col-md-6">              
+            </div>
+         </div>
+         
+         
     </div>
-    </div>
-</div>
 </div>
 <br><br>
 

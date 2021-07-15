@@ -1,5 +1,6 @@
 from django.urls import path, include
 from app import views
+from django.contrib import admin
 
 urlpatterns = [
     path('',views.home,name="home"),
@@ -10,5 +11,7 @@ urlpatterns = [
     path('login',views.handleLogin,name="handleLogin"),
     path('signup',views.signup,name="signup"),
     path('logout',views.handleLogout,name="handleLogout"),
-    path('dev',views.dev,name="dev")
+    path('news',views.news,name="news"),
+    path('dev',views.dev,name="dev"),
+     path('accounts/', include('allauth.urls')),
 ]

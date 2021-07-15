@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load static %}
 {% block title %} Contact {% endblock title %}
 {% block contact %}
-active   text-light "  style="background-color: #2876f9;
+active   text-light btn-sm  "  style="background-color: #2876f9;
           background-image: linear-gradient(200deg, #2876f9 0%, #6d17cb 74%);"{% endblock contact %}
 {% block intro %}
 We are trying our best to help you..
 
 {% endblock intro %}
+{% block intro-image %}
+<img src="{% static 'images/contact13.svg' %}"  class="img-fluid animated" alt="hero-img1">
+{% endblock intro-image %}
 {% block body %}
 
 
@@ -36,13 +41,26 @@ background-image: linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%);
     <div class="row">
   
     <div class="col-md-6">
+      
     <div class="row">
-    <div class="col-md-2"></div>
+      
+    <div class="col-md-2">
+      
+    </div>
     </div>
     <div class="col-md-8">
-     
+     {% for message in messages  %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong></strong>{{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close ">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {% endfor %}
       <div class="card mt-4">
+       
         <div class="card-body">
+       
         <marquee behavior="" direction="left"
 >Fill the details , our team will get in touch with you.</marquee
 >
@@ -94,9 +112,10 @@ background-image: linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%);
                 rows="4"
               ></textarea>
             </div>
-            <button type="submit" class="btn btn1 text-light  btn btn-outline-dark  btn-md mt-3">
-              submit
-            </button>
+             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <a type="submit" class="btn btn-md btn1 btn r  text-light   btn-md  mt-3" id="btn" href="/login">Submit</a>
+             </div>
+     
           </form>
          
         </div>
@@ -105,11 +124,18 @@ background-image: linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%);
 
 
 </div>
+
     <div class="col-md-6">
     
     </div>
+    
     </div>
+    <div class="col-md-6  d-flex flex-column justify-content-center">
+      <img  type="image/png" src="{% static 'images/contact8.png' %}" alt="contact" >
+    </div>
+    
 </div>
+
 </div>
 <br><br>
 
