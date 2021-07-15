@@ -1,16 +1,42 @@
+from django.core.mail.message import EmailMessage
+from django.core.mail import EmailMessage
+from django.core import mail
+from django.conf import settings
 from django.http.response import HttpResponse
 from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 from django.conf import settings
 from django.contrib import messages 
+from app.models import Contact
 # Create your views here.
 
 def home(request):
     return  render(request,"index.html")
 
 def contact(request):
-    return  render(request,"contact.html")
+    if request.method == "POST":
+        fullname = request.POST.get('fullname')
+        email = request.POST.get('email')
+        phone = request.POST.get('num')
+        description = request.POST.get('description')
+        contact_query = Contact(
+            name=fullname, email=email, number=phone, description=description)
+        contact_query.save()
+        from_email = settings.EMAIL_HOST_USER
+        # email starts here
+        # your mail starts here
+        connection = mail.get_connection()
+        connection.open()
+        email_mesge = mail.EmailMessage(f'DevChroma Contact Email from {fullname}', f'Email from : {email}\nUser Query :{description}\nPhone No : {phone}', from_email, [
+                                        'ananthakrishnannairrs@gmail.com'], connection=connection)
+        email_user = mail.EmailMessage('DevChroma Customer Support', f'Hello {fullname}\nI hope you are doing well..\nThanks for Contacting Us, Our team is working on it & will resolve your query as soon as possible.\n\n\n\nThanks & Regards \nAnanthakrishnan \nDevChroma', from_email, [email], connection=connection)
+        connection.send_messages([email_mesge, email_user])
+        connection.close()
+        messages.info(request, "Thanks for Contacting Us , Will get back to you soon..")
+        return redirect('/contact')
+    return render(request, 'contact.html')
+
 
 def handleblog(request):
     return render(request,"blog.html")
@@ -21,6 +47,9 @@ def about(request):
 
 
 def services(request):
+    if not request.user.is_authenticated:
+        messages.error(request, "please login and try again")
+        return redirect('/login')
     return render(request,"services.html")      
 
 def handleLogin(request):
@@ -74,6 +103,9 @@ def signup(request):
 
 def dev(request):
     return render(request,"dev.html")
+
+def news(request):
+    return render(request,"news.html")    
 
 def handleLogout(request):
     logout(request)

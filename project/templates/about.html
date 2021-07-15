@@ -1,12 +1,16 @@
-{% extends 'base.html' %}{% block title %}
+{% extends 'base.html' %}
+{% load static %}{% block title %}
  About
 {% endblock title %}
 {% block about %}
-active    text-light "  type="submit" style="background-color: #6e72fc;
+active    text-light btn-sm "  type="submit" style="background-color: #6e72fc;
 background-image: linear-gradient(315deg, #6e72fc 0%, #ad1deb 74%);{% endblock about %}
 {% block intro %}
 About US
 {% endblock intro %}
+{% block intro-image %}
+<img src="{% static 'images/about1.png' %}" alt="hero-img"  class="img-fluid animated" width="600">
+{% endblock intro-image %}
 {% block body %}
 
 <br><br>
