@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}
+User Profile  | DevChroma
+{% endblock title %}
+
+{% block intro %}
+User Profile
+{% endblock intro %}
+{% block href %}
+href="/about"
+{% endblock href %}
+{% block intro-image %}
+<img src="{% static 'images/personal_profile.svg' %}"  class="img-fluid animated" alt="hero-img1">
+{% endblock intro-image %}
+{% block style %}
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    z-index: 99;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    background-color: rgb(73, 9, 223);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    height:50px; 
+    width:55px;
+    border-radius: 10px;
+  }
+  
+  #myBtn:hover {
+     background: linear-gradient(90deg, rgb(50, 4, 65) 0%, rgb(50, 2, 126) 35%, rgb(61, 3, 128) 100%);
+  }
+
+  .content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+   box-shadow: 0px 0px 28px rgba(120, 19, 187, 0.8), 0 -10px 20px -5px #9725f5;
+ 
+}
+
+.article-title {
+  color: #444444;
+  text-decoration: none;
+  text-decoration: none;
+}
+a.article-title:hover {
+  color: #6907c5;
+  text-decoration: none;
+}
+.article-content {
+  white-space: pre-line;
+  text-decoration: none;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3;
+  
+}
+.article-metadata .text1 {
+
+	color: rgb(110, 13, 148);
+	text-decoration: none;
+  font-size: 14px;
+	font-weight: bold;
+  }
+
+.article-metadata a:hover {
+  color: rgb(55, 14, 240);
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+
+{% endblock style %}
+{% block body %}
+<div class="container mt-4 mt-1 mb-2">
+    <div class="row">
+  
+    <div class="col-lg-3 ">
+    
+    
+    </div> 
+    <div class="col-md-12 col-lg-6">
+  <div class="content-section">
+        {% for message in messages  %}
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+            <strong></strong>{{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close ">
+            </button>
+          </div>
+        {% endfor %}
+        <center>
+          <legend class=" mb-4 text-center">{{user.first_name}}'s Profile Info🤔</legend>
+        <div class="media ">
+          <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+          <div class="media-body">
+            <p class="account-heading"> <b> Username: </b>{{ user.username }}</p>
+            <p class="text-secondary"> <b>Email:</b>  {{ user.email }}</p>
+          </div>
+        </div>
+      </center>
+        <!-- FORM HERE -->
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <fieldset class="form-group">
+              <legend class="border-bottom mb-4"></legend>
+              {{ u_form|crispy }}
+              {{ p_form|crispy }}
+          </fieldset> 
+          <div class="form-group mt-4 d-flex justify-content-end">
+              <button class="btn btn-outline-primary" type="submit">Update</button>
+          </div>
+      </form>
+      </div>
+    </div>
+    <div class="col-lg-3 d-flex flex-column justify-content-center">
+    
+    
+ 
+    
+</div>  
+         
+    </div>
+</div>
+<br><br>
+
+
+
+{% endblock body %}

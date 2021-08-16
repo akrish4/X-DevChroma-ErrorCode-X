@@ -16,13 +16,17 @@
  .btn1 {
   background-color: #310e68;
 background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+box-shadow: 0px 0px 10px rgba(0.5, 1.5, 0.5,1.5);
 
 }
+
 
  .card{
   border-radius: 15px;
   background-color: #fde74c;
 background-image: linear-gradient(319deg, #fde74c 0%, #32ff7a 37%, #2fcbe0 100%);
+border-radius: 30px;
+box-shadow: 0px 0px 10px rgba(0.5, 1.5, 2.5,3.5);
 
  }
  .form-group input{
@@ -35,7 +39,7 @@ background-image: linear-gradient(319deg, #fde74c 0%, #32ff7a 37%, #2fcbe0 100%)
  
 {% endblock head %}
 {% block title %}
-SIGN UP
+SIGN UP | DevChroma
 {% endblock title %}
 {% block user %}
   active
@@ -43,8 +47,11 @@ SIGN UP
 {% block intro %}
 Create your account to continue..
 {% endblock intro %}
+{% block href %}
+href="/about"
+{% endblock href %}
 {% block intro-image %}
-<img src="{% static 'images/hero-img1.png' %}"  class="img-fluid animated" alt="hero-img">
+<img src="{% static 'images/relax.svg' %}"  class="img-fluid animated" alt="hero-img">
 {% endblock intro-image %}
 {% block body %}
 <div class="container mt-4 mt-1">
@@ -53,7 +60,7 @@ Create your account to continue..
       <div class="col-md-1">
   
       </div>
-    <div class="col-md-5 ">
+    <div class="col-md-5 col-md-8 col-lg-5 col-12 ">
         <div class="row">
             <div class="col-md-2"></div>
             </div>
@@ -63,7 +70,7 @@ Create your account to continue..
               <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
                   <strong></strong>{{message}}
                   <button type="button" class="btn-close " data-bs-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                
                   </button>
                 </div>
                 {% endfor %}
@@ -79,7 +86,7 @@ Create your account to continue..
              
              
             
-             <input type="text" class="form-control" name="username" id="username" placeholder="Username  (must be alphanumeric)" Required>
+            <input type="text" class="form-control" name="username" id="username" placeholder="Username  (must be alphanumeric)" Required>
              </div>
              <div class="form-group ">
              <input type="text" class="form-control mt-3" name="fname" id="firstname" placeholder="FirstName" Required>
@@ -117,8 +124,8 @@ Create your account to continue..
         </div>
     </div>
       
-    <div class="col-md-5 col-lg-5 d-flex flex-column justify-content-center">
-      <img  type="image/png" src="{% static 'images/login1.jpg' %}" alt="contact">
+    <div class="col-md-5 col-lg-5 col-md-12 col-lg-5 col-12 d-flex flex-column justify-content-center">
+      <img  type="image/png" src="{% static 'images/standout.svg' %}" alt="contact">
       </div> 
       <div class="col-md-1">
   

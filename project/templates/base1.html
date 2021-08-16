@@ -33,16 +33,10 @@
      <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-   <!-- Vendor CSS Files -->
-  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+   
 
   <!-- Template Main CSS File -->
-  <link href="static/css/style.css" rel="stylesheet">
+  <link href="static/assets/css/style.css" rel="stylesheet">
     <title>
           {% block title %}
             
@@ -54,6 +48,7 @@
        
      {% endblock head %}
     <style>
+    {% block style %}{% endblock style %}
 body{
   font-family: "Montserrat", sans-serif;
 }
@@ -75,7 +70,7 @@ body{
     position: absolute;
     width: 3%;
     height: 45px;
-    border-radius: 50px;
+    border-radius: 10px;
     background-color: transparent;
     border: 6px solid rgba(255, 255, 255, 0.8);
 }
@@ -157,7 +152,7 @@ body{
 #hero h1 {
     margin: 0 0 10px 0;
     font-size: 48px;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 56px;
     color: #fff;
 }
@@ -183,33 +178,7 @@ body{
     background: linear-gradient(90deg, rgb(97, 15, 122) 0%, rgb(172, 28, 216) 35%, rgb(10, 10, 10) 100%);
 }
 
-#hero .btn-get-started:hover {
-    
-    background: linear-gradient(90deg, rgb(97, 15, 122) 0%, rgb(172, 28, 216) 35%, rgb(10, 10, 10) 100%);
-}
 
-#hero .btn-watch-video {
-    font-size: 16px;
-    display: inline-block;
-    padding: 10px 0 8px 40px;
-    transition: 0.5s;
-    margin: 10px 0 0 25px;
-    color: #fff;
-    position: relative;
-}
-
-#hero .btn-watch-video i {
-    color: #fff;
-    font-size: 32px;
-    position: absolute;
-    left: 0;
-    top: 7px;
-    transition: 0.3s;
-}
-
-#hero .btn-watch-video:hover i {
-    color: #47b2e4;
-}
 
 #hero .animated {
     animation: up-down 2s ease-in-out infinite alternate-reverse both;
@@ -337,103 +306,9 @@ body{
 # Back to top button
 --------------------------------------------------------------*/
 
-.back-to-top {
-    position: fixed;
-    display: none;
-    right: 15px;
-    bottom: 15px;
-    z-index: 99999;
-}
 
-.back-to-top i {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50px;
-     background: linear-gradient(90deg, rgba(2, 0, .6, 1) 0%, rgb(71, 9, 121) 35%, rgba(0, 212, 255, 1) 100%);
-    color: #fff;
-    transition: all 0.4s;
-}
 
-.back-to-top i:hover {
-     background: linear-gradient(90deg, rgb(4, 6, 136) 0%, rgb(7, 7, 7) 35%, rgba(0, 212, 255, 1) 100%);
-    color: #fff;
-}
 
-    .loader-wrapper {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #3d3b9c;
-  display:flex;
-  justify-content: center;
-  align-items: center;
-}
-.loader {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  position: relative;
-                        /******** <- Remove this line *********/
-  border: 4px solid #Fff;
-  animation: loader 2s infinite ease;
-}
-.loader-inner {
-  vertical-align: top;
-  display: inline-block;
-  width: 100%;
-  background-color: #fff;
-  animation: loader-inner 4s infinite ease-in;
-}
-
-@keyframes loader {
-  0% {
-    transform: rotate(0deg);
-  }
-  
-  25% {
-    transform: rotate(180deg);
-  }
-  
-  50% {
-    transform: rotate(180deg);
-  }
-  
-  75% {
-    transform: rotate(360deg);
-  }
-  
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes loader-inner {
-  0% {
-    height: 0%;
-  }
-  
-  25% {
-    height: 0%;
-  }
-  
-  50% {
-    height: 100%;
-  }
-  
-  75% {
-    height: 100%;
-  }
-  
-  100% {
-    height: 0%;
-  }
-}
     </style>
 
   </head>
@@ -473,13 +348,13 @@ body{
          <li class="nav-item  ">
           <a class="nav-link {% block blog %}
             
-          {% endblock blog %}" href="/blog"  >Blog</a>
+          {% endblock blog %}" href="/blog/blog">Blog</a>
         </li>
         
         <li class="nav-item">
           <a class="nav-link {% block about %}
             
-          {% endblock about %}" href="/about">About</a>
+          {% endblock about %}" href=" {% url 'about' %}">About</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {% block contact %}
@@ -490,6 +365,12 @@ body{
           <a class="nav-link {% block dev %}
           {% endblock dev %}" href="/dev">
              Dev
+          </a>
+       </li>
+        <li class="nav-item">
+          <a class="nav-link {% block quiz %}
+          {% endblock quiz %}" href="/quiz">
+             Quiz
           </a>
        </li>
        <li class="nav-item">
@@ -535,11 +416,12 @@ body{
             <a class="nav-link dropdown-toggle 
               
            " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Welcome   {{user.username}}
+              Welcome   {{user.first_name}}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               
-              <li><a class="dropdown-item" href="/profile"> Profile </a>  </li>
+              <li><a class="dropdown-item" href="  {% url 'profile' %} "> Profile </a>  </li>
+              <li><a class="dropdown-item" href="/profile"> New Post </a>  </li>
               <li><a class="dropdown-item" href="/profile"> Dashboard </a>  </li>
               <li><a class="dropdown-item" href="/profile"> Settings </a>  </li>
               <li><a class="dropdown-item" href="/profile"> Help </a>  </li>
@@ -563,6 +445,8 @@ body{
     </div>
   </div>
 </nav>
+
+
 
 
 
@@ -737,32 +621,10 @@ background-image: linear-gradient(315deg, #09090a 0%, #000000 74%);
         <!--Grid row-->
         <div class="row d-flex justify-content-center">
           <!--Grid column-->
-          <div class="col-auto">
-            <p class="pt-2">
-              <strong>Sign up for our newsletter</strong>
-            </p>
-          </div>
+         
           <!--Grid column-->
 
-          <!--Grid column-->
-          <div class="col-md-5 col-12">
-            <!-- Email input -->
-            <div class="form-outline form-white mb-4">
-              <input type="email" id="form5Example2" class="form-control" />
-              <label class="form-label" for="form5Example2">Email address</label>
-            </div>
-          </div>
-          <!--Grid column-->
-
-          <!--Grid column-->
-          <div class="col-auto">
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-outline-light mb-4">
-              Subscribe
-            </button>
-          </div>
-          <!--Grid column-->
-        </div>
+        
         <!--Grid row-->
       </form>
     </section>
@@ -839,7 +701,7 @@ background-image: linear-gradient(315deg, #09090a 0%, #000000 74%);
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: #130f40;
-  background-image: linear-gradient(315deg, #130f40 0%, #000000 74%);">
+  background-image: linear-gradient(315deg, #04030a 0%, #000000 74%);">
     <div class="copyright">
       &copy; Copyright  2021 - 2022
     </div>
@@ -851,7 +713,8 @@ background-image: linear-gradient(315deg, #09090a 0%, #000000 74%);
 <!-- Footer -->
 
 
-<a href="#" class="back-to-top"><img src="https://img.icons8.com/color/48/000000/circled-up--v3.png"/></a>
+<button  onclick="topFunction()" id="myBtn"  title="Go to top"><img src="https://img.icons8.com/metro/24/000000/long-arrow-up.png"/></button>
+
 <div id="preloader"></div>
 
  <!--    <div class="loader-wrapper">
@@ -866,7 +729,7 @@ background-image: linear-gradient(315deg, #09090a 0%, #000000 74%);
 -->
   
 <!-- Template Main JS File -->
-<script src="/static/assets/js/main.js"></script>
+<script type="text/javascript" src="static/assets/js/script.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script>
@@ -882,38 +745,11 @@ $(window).on('load', function() {
   });
   
 
-  // Back to top button
-  $(window).scroll(function() {
-    if ($(this).scrollTop() > 100) {
-      $('.back-to-top').fadeIn('slow');
-    } else {
-      $('.back-to-top').fadeOut('slow');
-    }
-  });
-
-  $('.back-to-top').click(function() {
-    $('html, body').animate({
-      scrollTop: 0
-    }, 1500, 'easeInOutExpo');
-    return false;
-  });
-
-
 
   AOS.init();
 
 
-    // Init AOS
-    function aos_init() {
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
-  }
-  $(window).on('load', function() {
-    aos_init();
-  });
-
+   
 
 
 </script>

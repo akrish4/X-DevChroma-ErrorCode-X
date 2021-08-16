@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load static %}
-{% block title %} Contact {% endblock title %}
+{% block title %}
+Contact | DevChroma
+{% endblock title %}
 {% block contact %}
 active   text-light btn-sm  "  style="background-color: #2876f9;
           background-image: linear-gradient(200deg, #2876f9 0%, #6d17cb 74%);"{% endblock contact %}
@@ -9,6 +11,9 @@ active   text-light btn-sm  "  style="background-color: #2876f9;
 We are trying our best to help you..
 
 {% endblock intro %}
+{% block href %}
+href="/about"
+{% endblock href %}
 {% block intro-image %}
 <img src="{% static 'images/contact13.svg' %}"  class="img-fluid animated" alt="hero-img1">
 {% endblock intro-image %}
@@ -25,6 +30,7 @@ We are trying our best to help you..
 
 background-color: #310e68;
 background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+
 }
 
  .card{
@@ -32,6 +38,8 @@ background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
 
 background-color: #ffcfdf;
 background-image: linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%);
+border-radius: 30px;
+box-shadow: 0px 0px 10px rgba(0.5, 1.5, 0.5,3.5);
  }
 
  
@@ -40,7 +48,7 @@ background-image: linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%);
     
     <div class="row">
   
-    <div class="col-md-6">
+    <div class="col-md-12 col-lg-6 col-12">
       
     <div class="row">
       
@@ -53,7 +61,6 @@ background-image: linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%);
     <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
         <strong></strong>{{message}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close ">
-          <span aria-hidden="true">&times;</span>
         </button>
       </div>
     {% endfor %}
@@ -113,7 +120,7 @@ background-image: linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%);
               ></textarea>
             </div>
              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-              <a type="submit" class="btn btn-md btn1 btn r  text-light   btn-md  mt-3" id="btn" href="/login">Submit</a>
+              <button type="submit" class="btn btn-md btn1 btn r  text-light   btn-md  mt-3" id="btn">Submit</button>
              </div>
      
           </form>
@@ -130,7 +137,7 @@ background-image: linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%);
     </div>
     
     </div>
-    <div class="col-md-6  d-flex flex-column justify-content-center">
+    <div class="col-md-12 col-lg-6 col-12  d-flex flex-column justify-content-center">
       <img  type="image/png" src="{% static 'images/contact8.png' %}" alt="contact" >
     </div>
     

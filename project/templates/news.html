@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-Blog
+News | DevChroma
 {% endblock title %}
 {% block news %}
 active   text-light btn-sm  "  style="background-color: #2876f9;
@@ -10,72 +10,97 @@ active   text-light btn-sm  "  style="background-color: #2876f9;
 {% block intro %}
 Checkout Latest News
 {% endblock intro %}
+{% block href %}
+href="/about"
+{% endblock href %}
 {% block intro-image %}
-<img src="{% static 'images/bb.png' %}"  class="img-fluid animated" alt="hero-img">
+<img src="{% static 'images/services1.svg' %}"  class="img-fluid animated" alt="hero-img">
 {% endblock intro-image %}
+{% block style %}
+
+.filterbtn{
+	border: none;
+	outline: none;
+	padding: 12px 16px;
+	background-color: #84a8f5;
+	cursor: pointer;
+	align-items: center;
+	border-radius: 10px;
+}
+  
+.filterbtn:hover {
+	background-color: #2876f9;
+  background-image: linear-gradient(315deg, #2876f9 0%, #6d17cb 74%);
+	text-decoration: none;
+	color: #fff;
+
+}
+	
+  
+
+{% endblock style %}
 {% block body %}
 
-<br><br>
+<section id="services" class="services section-bg">
+
 <div class="container">
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
+    <center><p><h2>LATEST NEWS</h2></p></center> 
+    <br>
+    <center> 
+      <div class="row">
+        <div class="col-md-3">
+          
+          <form action="" method="get">
+            <input type="text" name="country" placeholder="Country"  required>
+            <button type="submit" value="search" class="btn btn-primary  btn-sm">Search</button>
+          </form>
+          
+        </div>
+       &nbsp;  
+
+        
+    <div id="myBtnContainer" class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
+      <a class="btn  btn-sm filterbtn" href="{% url 'news' %}?category=general">General</a>
+      <a class="btn btn-sm filterbtn" href="{% url 'news' %}?category=health&language=en">Health</a>
+      <a class="btn btn-sm filterbtn" href="{% url 'news' %}?category=Entertainment&language=en">Entertainment</a>
+      <a class="btn  btn-sm filterbtn"href="{% url 'news' %}?category=Science&language=en">Science</a>
+      <a class="btn  btn-sm filterbtn" href="{% url 'news' %}?category=Sports&language=en">Sports</a>
+      <a  class="btn  btn-sm filterbtn"  href="{% url 'news' %}?category=technology&language=en">Technology</a>
     </div>
+   
   </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+  </center>
+    <br><br>
+  <div class="row">
+
+      {% for i in articles %}
+    <div class="col-sm" >
+      <div  class="card newscard " style="width: 19rem; ">
+        <img src="{{i.urlToImage}}" class="card-img-top" alt="imagetop">
+        <div class="card-body">
+          <h6 class="card-title text-center"><b>{{ i.source.name }}</b></h6>
+          <br>
+          <p class="card-title "> <b>Title</b> : {{ i.title }}</p>
+          <p class="card-text"> <b>Author</b> :{{ i.author }}</p>
+         
+          <p class="card-text"> <b>Desc</b> :{{ i.description }}</p>
+          <a href="{{i.url}}" class="btn newsbtn text-light"   target="_blank">Read News</a>
+          <p class="card-text"><small class="text-muted"> <b>  Published at </b> : {{i.publishedAt}}</small></p>
+        </div>
       </div>
+      <br>
     </div>
+
+      {% endfor %}
   </div>
+     
+      
 </div>
-<div class="row">
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-  </div><div class="row">
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
+</section>
+    
+
+    
+    
+
   <br><br>
 {% endblock body %}

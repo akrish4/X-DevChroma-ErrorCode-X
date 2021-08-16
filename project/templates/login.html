@@ -10,6 +10,7 @@
 
 background-color: #310e68;
 background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+box-shadow: 0px 0px 10px rgba(0.5, 1.5, 0.5,1.5);
 }
 
 
@@ -20,6 +21,8 @@ background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
   border-radius: 15px;
 background-color: #e4b5cb;
 background-image: linear-gradient(315deg, #e4b5cb 0%, #722ae6 74%);
+border-radius: 30px;
+box-shadow: 1px 1px 10px rgba(0.0, 0.0, 1.2,1.5);
 
 
 
@@ -33,7 +36,7 @@ background-image: linear-gradient(315deg, #e4b5cb 0%, #722ae6 74%);
 </style>
 {% endblock head %}
 {% block title %}
- LOGIN
+LOGIN | DevChroma  
 {% endblock title %}
 {% block user %}
 active 
@@ -41,21 +44,24 @@ active
 {% block intro %}
 Please Login to Continue!
 {% endblock intro %}
+{% block href %}
+href="/about"
+{% endblock href %}
 {% block intro-image %}
-<img src="{% static 'images/hero-img2.png' %}"   class="img-fluid animated"  alt="hero-img" width="600">
+<img src="{% static 'images/skateboard.svg' %}"   class="img-fluid animated"  alt="hero-img" width="600">
 {% endblock intro-image %}
 {% block body %}
 {% load socialaccount %}
 <div class="container mt-4 mt-1 mb-2">
     <div class="row">
   
-    <div class="col-lg-5 d-flex flex-column justify-content-center">
+    <div class="col-lg-5 col-md-12 col-lg-5 col-12 d-flex flex-column justify-content-center">
     <img  type="image/png" src="{% static 'images/login2.png' %}" alt="contact">
     </div> 
     <div class="col-md-2">
 
     </div>
-         <div class="col-md-5 col-lg-5 align-items-stretch order-1">
+         <div class=" col-lg-5 col-md-8 col-lg-5 col-12 align-items-stretch order-1">
             <div class="row">
               <div class="col-md-2"></div>
             </div>
@@ -65,8 +71,7 @@ Please Login to Continue!
                   {% for message in messages  %}
            <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
             <strong></strong>{{message}}
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close ">
-             <span aria-hidden="true">&times;</span>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
             </button>
            </div>
             {% endfor %}
@@ -82,8 +87,8 @@ Please Login to Continue!
      <div class="form-group">
      
   
-     <label for="username"></label>
-     <input type="text" class="form-control" name="username" id="username" placeholder="UserName" required>
+     <label for="text"></label>
+     <input type="username" class="form-control" name="username" id="username" placeholder="Username" required>
      </div>
      
      <div class="form-group">
@@ -96,10 +101,12 @@ Please Login to Continue!
      
     
     </form> 
-   <span>Forgot Password?</span> &nbsp;&nbsp; <a href="#">Reset Here</a>
+    
+   <span class="text-light text-center">Forgot Password?</span>  <a class="text btn" style="color: #3f0207; 
+   " href="/request-reset-email/">Reset Here</a>
  
       
-<br> <center>
+ <center>
   
 </center>
 <span> New User ? </span><br>

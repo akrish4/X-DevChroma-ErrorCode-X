@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-Services 
+Services | DevChroma
 {% endblock title %}
 {% block services %}
 active   text-light btn-sm "  type="submit" style="background-color: #2876f9;
@@ -9,6 +9,9 @@ active   text-light btn-sm "  type="submit" style="background-color: #2876f9;
 {% block intro %}
 Our Services are Best
 {% endblock intro %}
+{% block href %}
+href="/about"
+{% endblock href %}
 {% block intro-image %}
-<img src="{% static 'images/aa.png' %}"  class="img-fluid animated" alt="hero-img" width="900">
+<img src="{% static 'images/team.svg' %}"  class="img-fluid animated" alt="hero-img" width="900">
 {% endblock intro-image %}

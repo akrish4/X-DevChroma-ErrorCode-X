@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}
-Dev Profile
+Dev Profile  | DevChroma
 {% endblock title %}
 {% block dev %}
 active  text-light  btn-sm "  type="submit" style="background-color: #2876f9;
@@ -9,6 +10,12 @@ active  text-light  btn-sm "  type="submit" style="background-color: #2876f9;
 {% block intro %}
 Dev Profile
 {% endblock intro %}
+{% block href %}
+href="#dev"
+{% endblock href %}
+{% block intro-image %}
+<img src="{% static 'images/devloper.svg' %}"  class="img-fluid animated" alt="hero-img1">
+{% endblock intro-image %}
 {% block body %}
 
 {% endblock body %}

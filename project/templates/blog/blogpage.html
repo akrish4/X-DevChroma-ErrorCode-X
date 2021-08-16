@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Blog  | DevChroma
+{% endblock title %}
+{% block blog %}
+active   text-light  btn-sm "  style="background-color: #2876f9;
+          background-image: linear-gradient(200deg, #2876f9 0%, #6d17cb 74%);"
+{% endblock blog %}
+{% block intro %}
+Checkout Our Blogs
+{% endblock intro %}
+{% block href %}
+href="/about"
+{% endblock href %}
+{% block intro-image %}
+<img src="{% static 'images/wall.svg' %}"  class="img-fluid animated" alt="hero-img1">
+{% endblock intro-image %}
+{% block style %}
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    z-index: 99;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    background-color: rgb(73, 9, 223);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    height:50px; 
+    width:55px;
+    border-radius: 10px;
+  }
+  
+  #myBtn:hover {
+     background: linear-gradient(90deg, rgb(50, 4, 65) 0%, rgb(50, 2, 126) 35%, rgb(61, 3, 128) 100%);
+  }
+
+  .content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0,0.3);
+ 
+}
+ .content-section1 {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  border-radius: 25px;
+  box-shadow: 0px 0px 28px rgba(50, 14, 180, 0.8), 0 -10px 20px -5px #9903be;
+}
+
+
+.article-title {
+  color: #444444;
+  text-decoration: none;
+  text-decoration: none;
+}
+a.article-title:hover {
+  color: #6907c5;
+  text-decoration: none;
+}
+.article-content {
+  white-space: pre-line;
+  text-decoration: none;
+}
+
+.article-img {
+  height: 55px;
+  width: 55px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3;
+  
+}
+.article-metadata .text1 {
+	color: rgb(110, 13, 148);
+	text-decoration: none;
+  font-size: 14px;
+	font-weight: bold;
+  }
+
+.article-metadata a:hover {
+  color: rgb(55, 14, 240);
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+  text-decoration: none;
+}
+
+
+{% endblock style %}
+{% block body %}
+
+<br><br>
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-8">
+      
+      {% for post in posts %}
+       <article class="media content-section1">
+                <div class="media-body">
+                  <div class="article-metadata">
+                   <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+                    <a class="text1" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a> &nbsp;
+                    <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+                  </div>
+                  <h2><a class="article-title" href=" {% url 'post-detail' post.id %} ">{{ post.title }}</a></h2>
+                  <p class="article-content">{{ post.content }}</p>
+                </div>
+        </article>
+      {% endfor %}
+      <center>
+       {% if is_paginated %}
+
+      {% if page_obj.has_previous %}
+        <a class="btn btn-outline-dark mb-4 btn-sm" href="?page=1">First</a>
+        <a class="btn btn-outline-dark mb-4 btn-sm" href="?page={{ page_obj.previous_page_number }}">Prev</a>
+      {% endif %}
+
+      {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+          <a class="btn btn-dark mb-4 btn-sm" href="?page={{ num }}">{{ num }}</a>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+          <a class="btn btn-outline-dark mb-4 btn-sm" href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+      {% endfor %}
+
+      {% if page_obj.has_next %}
+        <a class="btn btn-outline-dark mb-4 btn-sm" href="?page={{ page_obj.next_page_number }}">Next</a>
+        <a class="btn btn-outline-dark mb-4 btn-sm" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+      {% endif %}
+    {% endif %}
+    </center>
+    </div>
+    <div class="col-md-4">
+      <div class="content-section">
+        <h3>Our Sidebar</h3>
+        <p class='text-muted'>You can put any information here you'd like.
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-light">Latest Posts</li>
+            <li class="list-group-item list-group-item-light">Announcements</li>
+            <li class="list-group-item list-group-item-light">Calendars</li>
+            <li class="list-group-item list-group-item-light">etc</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+  <br><br>
+  
+
+
+{% endblock body %}
